@@ -172,9 +172,13 @@ export default function Contact() {
       if (formRef.current) {
         formRef.current.reset();
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("EmailJS Error:", error);
-      showToast("Failed to send message. Please verify your connection or try again later.", "error");
+      const serverError = error?.text || error?.message || (typeof error === "string" ? error : "");
+      const finalErrorMsg = serverError 
+        ? `Failed to send: ${serverError}` 
+        : "Failed to send message. Please check your Vercel keys or try again later.";
+      showToast(finalErrorMsg, "error");
     } finally {
       setLoading(false);
     }
