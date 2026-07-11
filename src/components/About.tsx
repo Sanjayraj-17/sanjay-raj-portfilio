@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Award, Briefcase, CheckCircle, Code, Lightbulb, Users, User, Terminal, Cpu, Database, Globe } from "lucide-react";
+import Image from "next/image";
+import { Award, Briefcase, CheckCircle, Code, Lightbulb, Users, Terminal, Cpu, Database, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { AnimatedBeam } from "./magicui/AnimatedBeam";
 
@@ -76,10 +77,16 @@ function TechBeamDiagram() {
         </div>
       </div>
 
-      {/* Center node */}
+      {/* Center node - Profile Photo Integration */}
       <div className="z-10">
-        <div ref={centerRef} className="w-14 h-14 rounded-full bg-gradient-to-tr from-accent to-purple-accent border-2 border-white/10 flex items-center justify-center text-white shadow-xl shadow-glow-purple">
-          <User size={22} />
+        <div ref={centerRef} className="w-14 h-14 rounded-full bg-gradient-to-tr from-accent to-purple-accent border-2 border-white/10 flex items-center justify-center shadow-xl shadow-glow-purple overflow-hidden relative">
+          <Image
+            src="/profile.jpg"
+            alt="Sanjay Raj"
+            fill
+            className="object-cover object-center scale-105"
+            sizes="56px"
+          />
         </div>
       </div>
 
@@ -118,20 +125,54 @@ export default function About() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
-          {/* Text content - Left Column */}
+          {/* Text content & Profile Image - Left Column */}
           <motion.div 
-            className="lg:col-span-7 space-y-6 text-gray-400 text-base md:text-lg leading-relaxed"
+            className="lg:col-span-8 space-y-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <p>
-              I am a passionate <strong className="text-white font-semibold">Software Developer</strong> with specialized skills in Python Full Stack development. Currently pursuing my B.E. in Computer Science and Engineering, I focus on building efficient, secure solutions to real-world business challenges.
-            </p>
-            <p>
-              With a strong interest in UI/UX and a user-first engineering mindset, I strive to create web platforms that perform exceptionally well and feel premium. I love exploring state-of-the-art architectures and building clean interfaces.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+              {/* Bio text */}
+              <div className="md:col-span-8 space-y-6 text-gray-400 text-base md:text-lg leading-relaxed">
+                <p>
+                  I am a passionate <strong className="text-white font-semibold">Software Developer</strong> with specialized skills in Python Full Stack development. Currently pursuing my B.E. in Computer Science and Engineering, I focus on building efficient, secure solutions to real-world business challenges.
+                </p>
+                <p>
+                  With a strong interest in UI/UX and a user-first engineering mindset, I strive to create web platforms that perform exceptionally well and feel premium. I love exploring state-of-the-art architectures and building clean interfaces.
+                </p>
+              </div>
+
+              {/* Profile Image Frame */}
+              <div className="md:col-span-4 flex items-center justify-center">
+                <div className="relative w-full aspect-square max-w-[220px] md:max-w-none rounded-2xl border border-white/10 p-1.5 bg-gradient-to-b from-white/10 to-transparent shadow-2xl overflow-hidden group">
+                  {/* Inner shadow/gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-white/5 z-10 pointer-events-none rounded-xl" />
+                  
+                  {/* Soft backing glow */}
+                  <div className="absolute -bottom-10 -left-10 w-28 h-28 bg-accent/20 blur-2xl rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
+                  
+                  {/* The profile image */}
+                  <div className="relative w-full h-full rounded-xl overflow-hidden aspect-square border border-white/5">
+                    <Image
+                      src="/profile.jpg"
+                      alt="Sanjay Raj M"
+                      fill
+                      className="object-cover object-center grayscale hover:grayscale-0 transition-all duration-700 scale-102 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 250px"
+                      priority
+                    />
+                  </div>
+                  
+                  {/* Tech badge/Overlay */}
+                  <div className="absolute bottom-3 left-3 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 border border-white/10 backdrop-blur-md">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                    <span className="text-[9px] font-mono font-semibold tracking-wider text-white">PORTFOLIO</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
@@ -152,7 +193,7 @@ export default function About() {
 
           {/* Side Bio Card - Right Column */}
           <motion.div 
-            className="lg:col-span-5 space-y-6"
+            className="lg:col-span-4 space-y-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
