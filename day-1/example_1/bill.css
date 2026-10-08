@@ -1,0 +1,80 @@
+body {
+    font-family: Arial;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.bill-container {
+    box-sizing: border-box;
+    width: min(100%, 520px);
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+}
+
+.bill-container > h1 {
+    margin: 0 0 1.5rem;
+    text-align: center;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 100px minmax(0, 1fr);
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-row label {
+    margin: 0;
+}
+
+.form-row select,
+.form-row input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+}
+
+.form-actions {
+    margin-left: 112px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+#grandtotal {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 400px) {
+    .bill-container {
+        padding: 1.25rem;
+    }
+
+    .form-row {
+        grid-template-columns: 80px minmax(0, 1fr);
+        gap: 0.5rem;
+    }
+
+    .form-actions {
+        margin-left: 88px;
+    }
+}

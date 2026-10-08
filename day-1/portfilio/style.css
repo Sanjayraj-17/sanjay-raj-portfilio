@@ -1,0 +1,27 @@
+h1{
+    color: blue;
+}
+table{
+    width: 50%;
+    boder-collapse: collapse;
+    background-color:white;
+}
+td{
+    padding: 10px;
+    border-bottom: 1px solid black;
+    
+    cursor: pointer;
+  
+}
+td:hover{
+    background-color: rgb(101, 101, 92);
+}
+button{
+    padding: 10px;
+    background-color: rgb(34, 225, 53);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

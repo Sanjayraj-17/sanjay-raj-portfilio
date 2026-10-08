@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stationery bill</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="bill.css">
+</head>
+<body>
+    <main class="bill-container">
+        <h1>Stationery Bill</h1>
+    <div class="form-row">
+        <label for="items">Items</label>
+        <select id="items">
+            <option value="pen">Pen-20</option>
+            <option value="pencil">Pencil-5</option>
+            <option value="eraser">Eraser-8</option>
+            <option value="notebook">Notebook-10</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1">
+    </div>
+    <div class="form-actions">
+        <button id="submit" type="button" onclick="cal()">Submit</button>
+    </div>
+    <div id="result">
+        <h1 id="grandtotal"></h1>
+    </div>
+    </main>
+    <script src="bill.js"></script>
+
+
+
+</body>
+</html>
